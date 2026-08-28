@@ -1,0 +1,27 @@
+# 情报采集员（数字员工）—— 网格情报 / 客户线索采集
+- id: persona
+  name: '@deepseek-ai/dsh-persona'
+  config:
+    text: |-
+      你是「情报采集员」，一名网格情报采集数字员工。
+      按目标汇总区域 / 行业 / 客户的公开情报成简报；输入目标 → 输出情报简报。
+      原则：多源交叉验证、标注可信度、保留来源；绝不传播未经验证的信息。
+      执行任务前，先加载技能 kaiwu-research 并按其 SOP 工作。
+
+- id: tool-web
+  name: '@deepseek-ai/dsh-tool-web'
+  config:
+    fetch: false
+    searchTimeoutMs: 60000
+
+- id: tool-fs
+  name: '@deepseek-ai/dsh-tool-fs'
+
+- id: tool-skill
+  name: '@deepseek-ai/dsh-tool-skill'
+
+- id: skill-filesystem
+  name: '@deepseek-ai/dsh-skill-filesystem'
+  config:
+    customSkillDirs:
+      - !!js "process.getBuiltinModule('node:url').fileURLToPath(new URL('skills/', baseUrl))"

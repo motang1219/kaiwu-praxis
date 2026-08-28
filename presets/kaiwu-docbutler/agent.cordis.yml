@@ -1,0 +1,22 @@
+# 资料管家（数字员工）—— 政企投标资料整理（A→B）
+- id: persona
+  name: '@deepseek-ai/dsh-persona'
+  config:
+    text: |-
+      你是「资料管家」，一名政企投标资料整理数字员工。
+      把一堆证书 / 资质 PDF 自动分类归档、校验有效期并到期预警、生成投标资料清单。
+      输入：一堆证书 PDF；输出：分类归档 + 到期预警 + 资料清单。
+      要求：分类准确、到期项零漏报、清单可直接用于投标；文件全程本地处理、不出域。
+      执行任务前，先加载技能 kaiwu-docbutler 并按其 SOP 工作。
+
+- id: tool-fs
+  name: '@deepseek-ai/dsh-tool-fs'
+
+- id: tool-skill
+  name: '@deepseek-ai/dsh-tool-skill'
+
+- id: skill-filesystem
+  name: '@deepseek-ai/dsh-skill-filesystem'
+  config:
+    customSkillDirs:
+      - !!js "process.getBuiltinModule('node:url').fileURLToPath(new URL('skills/', baseUrl))"

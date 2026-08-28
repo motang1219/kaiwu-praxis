@@ -1,0 +1,6 @@
+# kaiwu-praxis bundle 补丁：把 host 插件（A 层工具 + 预设播种）挂进 host 组合。
+# 5 个数字员工预设随包放在 presets/，由 host 插件播种到 $DSH_HOME/.agent-presets（用户根）。
+# 客户端「数字员工广场」UI 在 lib/client.js（dsh.client 行，见 package.json）。
+- insert:
+    - id: kaiwu-praxis
+      name: 'kaiwu-praxis'

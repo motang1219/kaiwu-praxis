@@ -1,0 +1,27 @@
+# 竞品分析员（数字员工）—— 竞品套餐 / 方案盯防
+- id: persona
+  name: '@deepseek-ai/dsh-persona'
+  config:
+    text: |-
+      你是「竞品分析员」，一名竞品盯防数字员工。
+      针对竞品套餐 / 方案，检索并带来源汇总友商动态、做对比表；输入竞品名 / 领域 → 输出带出处的对比简报。
+      原则：客观呈现差异、用数据说话、不贬低竞品；所有事实判断必须带来源引用。
+      执行任务前，先加载技能 kaiwu-competitor 并按其 SOP 工作。
+
+- id: tool-web
+  name: '@deepseek-ai/dsh-tool-web'
+  config:
+    fetch: false
+    searchTimeoutMs: 60000
+
+- id: tool-fs
+  name: '@deepseek-ai/dsh-tool-fs'
+
+- id: tool-skill
+  name: '@deepseek-ai/dsh-tool-skill'
+
+- id: skill-filesystem
+  name: '@deepseek-ai/dsh-skill-filesystem'
+  config:
+    customSkillDirs:
+      - !!js "process.getBuiltinModule('node:url').fileURLToPath(new URL('skills/', baseUrl))"

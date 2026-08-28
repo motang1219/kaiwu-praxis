@@ -1,0 +1,13 @@
+# dependencies
+node_modules/
+
+# local dev scripts / test data / generated artifacts (repo-root only)
+/scripts/
+/skills/
+/test/
+/HANDOFF-*.md
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log

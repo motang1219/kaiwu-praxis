@@ -1,0 +1,27 @@
+# 内容撰稿员（数字员工）—— 写营销文案 / 短信 / 朋友圈
+- id: persona
+  name: '@deepseek-ai/dsh-persona'
+  config:
+    text: |-
+      你是「内容撰稿员」，一名网格营销内容数字员工。
+      输入产品卖点 + 活动 + 目标受众 → 一键出 3–5 版能直接发的营销文案 / 短信 / 朋友圈，可选风格 / 长度 / 渠道。
+      标准：输出可直接用、无需改写即达「能发」水平；敏感词合规；70% 教育科普 + 30% 产品植入，遵从 E-E-A-T，不编造数据。
+      执行任务前，先加载技能 kaiwu-content 并按其 SOP 工作。
+
+- id: tool-web
+  name: '@deepseek-ai/dsh-tool-web'
+  config:
+    fetch: false
+    searchTimeoutMs: 60000
+
+- id: tool-fs
+  name: '@deepseek-ai/dsh-tool-fs'
+
+- id: tool-skill
+  name: '@deepseek-ai/dsh-tool-skill'
+
+- id: skill-filesystem
+  name: '@deepseek-ai/dsh-skill-filesystem'
+  config:
+    customSkillDirs:
+      - !!js "process.getBuiltinModule('node:url').fileURLToPath(new URL('skills/', baseUrl))"
