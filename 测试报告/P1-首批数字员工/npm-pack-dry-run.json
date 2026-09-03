@@ -1,0 +1,181 @@
+[
+  {
+    "id": "kaiwu-praxis@0.2.0",
+    "name": "kaiwu-praxis",
+    "version": "0.2.0",
+    "size": 740357,
+    "unpackedSize": 1047458,
+    "shasum": "f7b3ae5ceb95de54608d160bbc0b3d680c91986c",
+    "integrity": "sha512-UToMcRYV68oOwZqVEQlIX7AvA4QDr8UQD1TxywfcwrJDFQw9CqzDQmjIvrsuSgC4Lfj+hnYdZynXRrPlccVV8A==",
+    "filename": "kaiwu-praxis-0.2.0.tgz",
+    "files": [
+      {
+        "path": "LICENSE",
+        "size": 1088,
+        "mode": 420
+      },
+      {
+        "path": "README.md",
+        "size": 5072,
+        "mode": 420
+      },
+      {
+        "path": "assets/avatars/brand-auditor.webp",
+        "size": 20802,
+        "mode": 420
+      },
+      {
+        "path": "assets/avatars/data-tracker.webp",
+        "size": 17734,
+        "mode": 420
+      },
+      {
+        "path": "cordis.patch.yml",
+        "size": 381,
+        "mode": 420
+      },
+      {
+        "path": "lib/admin.mjs",
+        "size": 6047,
+        "mode": 420
+      },
+      {
+        "path": "lib/classify-core.mjs",
+        "size": 4847,
+        "mode": 420
+      },
+      {
+        "path": "lib/client.js",
+        "size": 947002,
+        "mode": 420
+      },
+      {
+        "path": "lib/files-tools.mjs",
+        "size": 13243,
+        "mode": 420
+      },
+      {
+        "path": "lib/index.js",
+        "size": 1569,
+        "mode": 420
+      },
+      {
+        "path": "lib/watermark-core.mjs",
+        "size": 5529,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 1213,
+        "mode": 420
+      },
+      {
+        "path": "presets/kaiwu-brand-auditor/agent.cordis.yml",
+        "size": 1131,
+        "mode": 420
+      },
+      {
+        "path": "presets/kaiwu-brand-auditor/preset.yml",
+        "size": 158,
+        "mode": 420
+      },
+      {
+        "path": "presets/kaiwu-brand-auditor/skills/kaiwu-brand-auditor/SKILL.md",
+        "size": 2400,
+        "mode": 420
+      },
+      {
+        "path": "presets/kaiwu-competitor/agent.cordis.yml",
+        "size": 994,
+        "mode": 420
+      },
+      {
+        "path": "presets/kaiwu-competitor/preset.yml",
+        "size": 134,
+        "mode": 420
+      },
+      {
+        "path": "presets/kaiwu-competitor/skills/kaiwu-competitor/SKILL.md",
+        "size": 2503,
+        "mode": 420
+      },
+      {
+        "path": "presets/kaiwu-content/agent.cordis.yml",
+        "size": 1062,
+        "mode": 420
+      },
+      {
+        "path": "presets/kaiwu-content/preset.yml",
+        "size": 146,
+        "mode": 420
+      },
+      {
+        "path": "presets/kaiwu-content/skills/kaiwu-content/SKILL.md",
+        "size": 3118,
+        "mode": 420
+      },
+      {
+        "path": "presets/kaiwu-data-tracker/agent.cordis.yml",
+        "size": 1082,
+        "mode": 420
+      },
+      {
+        "path": "presets/kaiwu-data-tracker/preset.yml",
+        "size": 149,
+        "mode": 420
+      },
+      {
+        "path": "presets/kaiwu-data-tracker/skills/kaiwu-data-tracker/SKILL.md",
+        "size": 2379,
+        "mode": 420
+      },
+      {
+        "path": "presets/kaiwu-docbutler/agent.cordis.yml",
+        "size": 955,
+        "mode": 420
+      },
+      {
+        "path": "presets/kaiwu-docbutler/preset.yml",
+        "size": 137,
+        "mode": 420
+      },
+      {
+        "path": "presets/kaiwu-docbutler/skills/kaiwu-docbutler/SKILL.md",
+        "size": 1339,
+        "mode": 420
+      },
+      {
+        "path": "presets/kaiwu-research/agent.cordis.yml",
+        "size": 953,
+        "mode": 420
+      },
+      {
+        "path": "presets/kaiwu-research/preset.yml",
+        "size": 140,
+        "mode": 420
+      },
+      {
+        "path": "presets/kaiwu-research/skills/kaiwu-research/SKILL.md",
+        "size": 1874,
+        "mode": 420
+      },
+      {
+        "path": "presets/kaiwu-watermark/agent.cordis.yml",
+        "size": 959,
+        "mode": 420
+      },
+      {
+        "path": "presets/kaiwu-watermark/preset.yml",
+        "size": 139,
+        "mode": 420
+      },
+      {
+        "path": "presets/kaiwu-watermark/skills/kaiwu-watermark/SKILL.md",
+        "size": 1179,
+        "mode": 420
+      }
+    ],
+    "entryCount": 33,
+    "bundled": []
+  }
+]

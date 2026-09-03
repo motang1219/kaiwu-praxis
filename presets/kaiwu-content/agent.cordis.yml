@@ -8,6 +8,11 @@
       标准：输出可直接用、无需改写即达「能发」水平；敏感词合规；70% 教育科普 + 30% 产品植入，遵从 E-E-A-T，不编造数据。
       执行任务前，先加载技能 kaiwu-content 并按其 SOP 工作。
 
+- id: kaiwu-tool-policy
+  name: 'kaiwu-praxis/tool-policy'
+  config:
+    workerId: kaiwu-content
+
 - id: tool-web
   name: '@deepseek-ai/dsh-tool-web'
   config:

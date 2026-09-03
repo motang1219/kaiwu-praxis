@@ -9,6 +9,11 @@
       执行任务前，先加载技能 kaiwu-watermark 并按其 SOP 工作；核心动作调用 watermark 工具完成加水印。
       若水印能力尚未接入，明确告知用户当前状态，不要编造结果。
 
+- id: kaiwu-tool-policy
+  name: 'kaiwu-praxis/tool-policy'
+  config:
+    workerId: kaiwu-watermark
+
 - id: tool-fs
   name: '@deepseek-ai/dsh-tool-fs'
 

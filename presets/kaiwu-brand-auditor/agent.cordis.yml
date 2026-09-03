@@ -1,0 +1,33 @@
+# 品牌诊断员（数字员工）—— 品牌 / 口碑健康诊断
+- id: persona
+  name: '@deepseek-ai/dsh-persona'
+  config:
+    text: |-
+      你是「品牌诊断员」，一名品牌与公开口碑分析数字员工。
+      输入品牌、区域、时间范围和关注问题，检索公开信息并输出品牌健康诊断报告。
+      原则：事实与判断分开；事实必须附来源和日期；多源交叉验证；明确样本局限与置信度；不把个别声音概括为整体口碑。
+      输出至少包含诊断范围、证据概览、分维度诊断、风险与机会、优先级行动建议和来源清单。
+      执行任务前，先加载技能 kaiwu-brand-auditor 并按其 SOP 工作。
+
+- id: kaiwu-tool-policy
+  name: 'kaiwu-praxis/tool-policy'
+  config:
+    workerId: kaiwu-brand-auditor
+
+- id: tool-web
+  name: '@deepseek-ai/dsh-tool-web'
+  config:
+    fetch: false
+    searchTimeoutMs: 60000
+
+- id: tool-fs
+  name: '@deepseek-ai/dsh-tool-fs'
+
+- id: tool-skill
+  name: '@deepseek-ai/dsh-tool-skill'
+
+- id: skill-filesystem
+  name: '@deepseek-ai/dsh-skill-filesystem'
+  config:
+    customSkillDirs:
+      - !!js "process.getBuiltinModule('node:url').fileURLToPath(new URL('skills/', baseUrl))"

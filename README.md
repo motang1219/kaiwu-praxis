@@ -1,10 +1,10 @@
 # kaiwu-praxis · 开物 Praxis
 
-一个 DeepSeek Harness（DSH）插件：把「数字员工」带进 DSH。
+一个 DeepSeek Harness（DSH）插件：把「数字员工」带进 DSH，并为多台员工端提供本机可运行的企业管理基础版。
 
-安装并启动 web 后，侧边栏会出现「数字员工广场」入口；点进去选择一位员工，即以它专属的工具与 SOP 开始新会话。插件同时注册 4 个本地确定性文件工具（A 层），并提供一个粗糙版「管理端」用于维护每位员工的资料 / 技能 / SOP。
+安装并启动 web 后，侧边栏会出现「数字员工广场」入口；点进去选择一位员工，即以它专属的工具与 SOP 开始新会话。插件同时注册 4 个本地确定性文件工具（A 层），提供「员工设置」维护每位员工的资料与能力，并提供可汇总多个本机员工端的企业管理基础版。
 
-## 5 位数字员工
+## 7 位数字员工
 
 | 员工 | preset id | 定位 | 技能 |
 | --- | --- | --- | --- |
@@ -13,6 +13,8 @@
 | 内容撰稿员 | `kaiwu-content` | 按产品 / 活动 / 受众一键出多版可用营销文案 | `kaiwu-content` |
 | 竞品分析员 | `kaiwu-competitor` | 竞品套餐 / 方案盯防：检索并带来源汇总友商动态、做对比表 | `kaiwu-competitor` |
 | 情报采集员 | `kaiwu-research` | 区域 / 行业 / 客户公开情报汇总成简报 | `kaiwu-research` |
+| 品牌诊断员 | `kaiwu-brand-auditor` | 扫描公开信息，输出带来源与置信度的品牌健康诊断 | `kaiwu-brand-auditor` |
+| 数据追踪员 | `kaiwu-data-tracker` | 统一指标口径，生成可复核的台账、趋势分析与汇报材料 | `kaiwu-data-tracker` |
 
 每位员工一个技能（`presets/<id>/skills/<id>/SKILL.md`），随预设一起分发；会话由该员工的 persona 主动加载并按其 SOP 工作。
 
@@ -43,19 +45,33 @@ dsh plugin --profile <profile> add link:<本仓库绝对路径>
 dsh web --profile <profile> --port 3081
 ```
 
-5 个数字员工预设会在宿主首次加载时自动播种到 `~/.dsh/.agent-presets/`（`preset.yml` / `agent.cordis.yml` / `skills/`）。
+7 个数字员工预设会在宿主首次加载时自动播种到 `~/.dsh/.agent-presets/`（`preset.yml` / `agent.cordis.yml` / `skills/`）。
 
 ## 使用
 
 1. **进入广场**：启动 web 后，点侧边栏的「数字员工广场」。
 2. **开始会话**：点任意员工卡片，即选中该预设并开启新会话；未发消息时输入框上方会显示能力卡片，对话开始后缩为输入框上方的小头像，悬停可再次查看。
-3. **管理端**：广场右上角「管理端」进入，左侧选员工，右侧三个页签：
-   - **资料**：新增 / 编辑 / 删除知识文档（Markdown），自动落盘到该员工预设目录的 `knowledge/`。
-   - **SOP**：新增 / 编辑 / 删除业务流程文档，自动落盘到 `sop/`。
-   - **技能**：只读展示该员工随包技能全文；如需修改，点「打开预设目录」直接编辑 `SKILL.md`，重启生效。
+3. **员工设置**：广场右上角「员工设置」进入；安装 `dsh-better-sidebar` 时入口位于其两个面板按钮左侧，左侧选员工并切换管理模块：
+   - **员工档案 / 对话日志**：展示负责人、部门、入职时间、员工简介，以及来自 DSH 会话快照的今日/累计/执行中/已完成统计和近期对话。
+   - **定时任务**：维护任务计划、执行周期、指令和启停状态；当前版本保存管理配置，尚未接通后台自动调度。
+   - **记忆 / 资料 / SOP**：新增、编辑、删除 Markdown 内容；资料与 SOP 分别自动落盘到员工预设目录的 `knowledge/`、`sop/`。
+   - **能力配置**：技能与工具合并管理。技能支持新增、编辑、启停、删除和恢复；工具只能从员工真实声明的能力中启停。变更会物化到员工预设，工具组件调整对新对话完整生效。
 4. 广场卡片与能力卡片上的「资料 / 技能 / SOP」数字来自管理端真实数据。
 
-> 管理端数据存在 DSH 的 settings 命名空间 `kaiwu-praxis`（`~/.dsh/settings.yaml`），宿主会 watch 变更并把资料 / SOP 物化为预设目录下的 md 文件。
+## 企业管理基础版
+
+广场右上角「企业管理」进入企业管理中心，当前版本包含：
+
+- **总览**：在线终端、员工实例、能力资产、对话数和能力覆盖概况。
+- **终端**：通过本机企业中枢汇总多个独立 DSH 实例的心跳、端口、版本与员工数量。
+- **数字员工**：按员工汇总各终端的安装数、资料数、能力数和所属部门。
+- **能力库**：盘点所有员工端实际安装的技能和工具，展示来源、版本与覆盖实例数。
+- **批量配置**：选择一个或多个员工端与数字员工，批量增加资料、SOP、技能，或启停已声明工具。指令由目标员工端写入自己的 settings，再通过原有 watch 流程物化。
+- **审计**：记录批量配置的操作时间、动作、目标、详情及最终执行结果。
+
+基础版中枢仅监听 `127.0.0.1:3099`，持久化数据位于 `%LOCALAPPDATA%/kaiwu-praxis/enterprise-hub.json`，适合便携包在同一台电脑上部署和联调；它不开放局域网端口。后续企业服务可替换该本机通道，保留现有终端上报与配置命令模型。
+
+> 员工设置数据存在 DSH 的 settings 命名空间 `kaiwu-praxis`（`~/.dsh/settings.yaml`），宿主会 watch 变更并把资料、SOP、技能与工具策略物化到预设目录。能力项记录交付来源、基线版本、当前包版本、本地修订和删除标记，为后续差异升级预留数据。
 
 ## 目录结构
 
@@ -66,12 +82,13 @@ kaiwu-praxis/
 ├── lib/
 │   ├── index.js          # host 插件：注册 A 层工具 + 播种 presets + 管理端数据层
 │   ├── admin.mjs         # 管理端 settings 命名空间 + 技能种子 + 文件物化
+│   ├── enterprise-hub.mjs # 本机企业中枢：终端心跳、指令队列和审计
 │   ├── client.js         # 客户端自注册 bundle：广场 + 管理端 + 会话能力卡片（免构建）
 │   ├── files-tools.mjs   # 4 个 A 层文件工具
 │   ├── watermark-core.mjs
 │   └── classify-core.mjs
 └── presets/
-    └── kaiwu-{watermark,docbutler,content,competitor,research}/
+    └── kaiwu-{watermark,docbutler,content,competitor,research,brand-auditor,data-tracker}/
         ├── agent.cordis.yml
         ├── preset.yml
         └── skills/<name>/SKILL.md

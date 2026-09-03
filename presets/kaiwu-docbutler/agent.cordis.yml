@@ -9,6 +9,11 @@
       要求：分类准确、到期项零漏报、清单可直接用于投标；文件全程本地处理、不出域。
       执行任务前，先加载技能 kaiwu-docbutler 并按其 SOP 工作。
 
+- id: kaiwu-tool-policy
+  name: 'kaiwu-praxis/tool-policy'
+  config:
+    workerId: kaiwu-docbutler
+
 - id: tool-fs
   name: '@deepseek-ai/dsh-tool-fs'
 

@@ -1,16 +1,18 @@
 {
   "name": "kaiwu-praxis",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
-  "description": "开物 Praxis：A 层确定性文件工具 + 5 个数字员工（水印工具/资料管家/内容撰稿员/竞品分析员/情报采集员）+ 数字员工广场 UI",
+  "description": "开物 Praxis：确定性工具、7 个数字员工、员工设置与企业管理端",
   "main": "lib/index.js",
   "exports": {
     ".": "./lib/index.js",
     "./client": "./lib/client.js",
+    "./tool-policy": "./lib/tool-policy.mjs",
     "./package.json": "./package.json"
   },
   "files": [
     "lib",
+    "assets",
     "presets",
     "cordis.patch.yml"
   ],
