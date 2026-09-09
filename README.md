@@ -33,7 +33,7 @@
 
 ```bash
 # 从 GitHub 安装到某个 profile
-dsh plugin --profile <profile> add git+https://github.com/motang1219/kaiwu-praxis.git
+dsh plugin --profile <profile> add git+https://github.com/motang1219/kaiwu-praxis.git#v0.5.1
 
 # 本地链接开发
 dsh plugin --profile <profile> add link:<本仓库绝对路径>
@@ -105,3 +105,7 @@ kaiwu-praxis/
 ## License
 
 MIT
+
+## 开发交接
+
+项目已进入跨设备通信收尾阶段。接手开发请从 [`docs/handoff/README.md`](./docs/handoff/README.md) 开始；企业管理端为独立插件和独立仓库，不应合并安装或发布。
